@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Needs Calculator</title>
+    <style>
+        :root {
+            --primary: #A9C46C;
+            --secondary: #5D8736;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .activity-level {
+            margin-top: 15px;
+        }
+        
+        .activity-level label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .results h3 {
+            margin-top: 0;
+        }
+        
+        .bmi-indicator {
+            font-weight: bold;
+        }
+        
+        .underweight { color: #ff9800; }
+        .normal { color: #4caf50; }
+        .overweight { color: #ff9800; }
+        .obese { color: #f44336; }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .section-title {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .progress-bars {
+            display: flex;
+            gap: 5px;
+            margin: 20px 0;
+            height: 30px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            transition: width 0.5s ease;
+        }
+
+        .protein-bar { background: #FF6B6B; }
+        .carbs-bar { background: #4ECDC4; }
+        .fat-bar { background: #FFD93D; }
+
+        .macronutrient-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .macronutrient-item {
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            width: 30%;
+        }
+
+        .protein-info { background: #FF6B6B20; }
+        .carbs-info { background: #4ECDC420; }
+        .fat-info { background: #FFD93D20; }
+
+        .input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input {
+    width: 100%;
+    max-width: 100%;
+    height: 44px;
+    background-color: #05060f0a;
+    border-radius: .5rem;
+    padding: 0 1rem;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(.25,.01,.25,1);
+}
+
+.label {
+    display: block;
+    margin-bottom: .3rem;
+    font-size: .9rem;
+    font-weight: bold;
+    color: #05060f99;
+    transition: color 0.3s cubic-bezier(.25,.01,.25,1);
+}
+
+.input:hover, .input:focus, .input-group:hover .input {
+    outline: none;
+    border-color: #A9C46C; /* Changed to match your primary color */
+}
+
+.input-group:hover .label, .input:focus {
+    color: #5D8736; /* Adjusted to your theme color */
+}
+
+/* Modified Select Dropdown to Match Input Style */
+select.input {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+}
+
+.container {
+            position: relative; /* For absolute positioning of back button */
+            padding-top: 60px; /* Make space for header */
+        }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 8px 15px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: var(--primary);
+            transform: translateY(-1px);
+        }
+
+         /* Activity Level Enhancements */
+    .activity-level {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .activity-option {
+        padding: 18px;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background: white;
+        position: relative;
+    }
+
+    .activity-option:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .activity-option input:checked + .option-content {
+        border-color: var(--primary);
+        background-color: #f8fff0;
+    }
+
+    .activity-option input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .option-content {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .checkmark {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ddd;
+        border-radius: 50%;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+
+    .activity-option input:checked ~ .checkmark {
+        background-color: var(--primary);
+        border-color: var(--primary);
+    }
+
+    .checkmark::after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 7px;
+        top: 3px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    .activity-option input:checked ~ .checkmark::after {
+        display: block;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(169, 196, 108, 0.25);
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(169, 196, 108, 0.35);
+    }
+
+    .btn-primary::after {
+        content: "→";
+        margin-left: 10px;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover::after {
+        opacity: 1;
+        margin-left: 15px;
+    }
+    
+    </style>
+</head>
+<body>
+   
+    <div class="container">
+        <!-- Add back button here -->
+        <button class="back-button" onclick="window.location.href='index.html'">⬅</button>
+        
+        <h1>Nutriplan Calculator</h1>
+
+        <!-- Personal Information Section -->
+        <div class="form-section">
+            <h2 class="section-title">Personal Information</h2>
+            
+            <div class="input-group">
+                <label class="label" for="user-name">Full Name</label>
+                <input type="text" id="user-name" class="input" placeholder="John Doe">
+            </div>
+        
+            <div class="input-group">
+                <label class="label" for="user-age">Age</label>
+                <input type="number" id="user-age" class="input" placeholder="Years">
+            </div>
+        
+            <div class="input-group">
+                <label class="label" for="user-gender">Gender</label>
+                <select id="user-gender" class="input">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+        
+            <div class="input-group">
+                <label class="label" for="user-weight">Body Weight</label>
+                <input type="number" id="user-weight" class="input" placeholder="Kilograms">
+            </div>
+        
+            <div class="input-group">
+                <label class="label" for="user-height">Height</label>
+                <input type="number" id="user-height" class="input" placeholder="Centimeters">
+            </div>
+        </div>
+
+        <!-- Activity Level Section -->
+        <div class="form-section">
+            <h2 class="section-title">Activity Level</h2>
+            <div class="activity-level">
+                <label class="activity-option">
+                    <input type="radio" name="activity" value="1.2" checked>
+                    <div class="option-content">
+                        <div>
+                            <h4>Sedentary</h4>
+                            <p class="option-description">Little or no exercise</p>
+                        </div>
+                    </div>
+                    <div class="checkmark"></div>
+                </label>
+        
+                <label class="activity-option">
+                    <input type="radio" name="activity" value="1.375">
+                    <div class="option-content">
+                        <div>
+                            <h4>Lightly Active</h4>
+                            <p class="option-description">Light exercise 1-3 days/week</p>
+                        </div>
+                    </div>
+                    <div class="checkmark"></div>
+                </label>
+                <label class="activity-option">
+                    <input type="radio" name="activity" value="1.375">
+                    <div class="option-content">
+                        <div>
+                            <h4>Moderately active </h4>
+                            <p class="option-description"> Moderately active (moderate exercise 3-5 days/week)</p>
+                        </div>
+                    </div>
+                    <div class="checkmark"></div>
+                </label>
+                <label class="activity-option">
+                    <input type="radio" name="activity" value="1.375">
+                    <div class="option-content">
+                        <div>
+                            <h4>Very active</h4>
+                            <p class="option-description"> Very active (hard exercise 6-7 days/week)</p>
+                        </div>
+                    </div>
+                    <div class="checkmark"></div>
+                </label>
+                <label class="activity-option">
+                    <input type="radio" name="activity" value="1.375">
+                    <div class="option-content">
+                        <div>
+                            <h4> Extra active </h4>
+                            <p class="option-description">  Extra active (very hard exercise & physical job)</p>
+                        </div>
+                    </div>
+                    <div class="checkmark"></div>
+                </label>
+            
+                <button class="btn btn-primary" onclick="calculateNutritionNeeds()">
+                    Calculate My Needs
+                </button>
+
+        <!-- Results Section -->
+        <div class="results" id="results">
+            <h2 class="section-title">Your Daily Nutrition Needs</h2>
+            
+            <div class="user-info">
+                <p>Name: <span id="display-name"></span></p>
+                <p>Age: <span id="display-age"></span>, Gender: <span id="display-gender"></span></p>
+                <p>Weight: <span id="display-weight"></span> kg, Height: <span id="display-height"></span> cm</p>
+                <p>BMI: <span id="display-bmi"></span> (<span id="bmi-category" class="bmi-indicator"></span>)</p>
+            </div>
+
+            <div class="calorie-needs">
+                <p>Daily Calorie Needs: <strong><span id="display-calories"></span> kcal</strong></p>
+            </div>
+
+            <div class="macronutrient-info">
+                <div class="macronutrient-item protein-info">
+                    <h4>Protein</h4>
+                    <p><span id="display-protein"></span> g</p>
+                </div>
+                <div class="macronutrient-item carbs-info">
+                    <h4>Carbs</h4>
+                    <p><span id="display-carbs"></span> g</p>
+                </div>
+                <div class="macronutrient-item fat-info">
+                    <h4>Fat</h4>
+                    <p><span id="display-fat"></span> g</p>
+                </div>
+            </div>
+
+            <div class="progress-bars" id="progress-bars">
+                <!-- These will be populated by JavaScript -->
+            </div>
+
+            <button class="btn btn-primary" onclick="goToMealPlan()">Go to Daily Meal Plan</button>
+        </div>
+    </div>
+
+    <script>
+        function calculateNutritionNeeds() {
+            // Get user info
+            const name = document.getElementById('user-name').value;
+            const age = parseInt(document.getElementById('user-age').value);
+            const gender = document.getElementById('user-gender').value;
+            const weight = parseFloat(document.getElementById('user-weight').value);
+            const height = parseFloat(document.getElementById('user-height').value);
+            const activityLevel = parseFloat(document.querySelector('input[name="activity"]:checked').value);
+            
+            if (!name || isNaN(age) || isNaN(weight) || isNaN(height)) {
+                alert('Please fill in all fields with valid values');
+                return;
+            }
+            
+            // Calculate BMI
+            const bmi = calculateBMI(weight, height);
+            const bmiCategory = getBMICategory(bmi);
+            
+            // Calculate BMR (Basal Metabolic Rate)
+            let bmr;
+            if (gender === 'male') {
+                bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+            } else {
+                bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+            }
+            
+            // Calculate TDEE (Total Daily Energy Expenditure)
+            const tdee = Math.round(bmr * activityLevel);
+            
+            // Calculate macronutrients (using standard ratios)
+            const proteinGrams = Math.round(weight * 2.2); // 2.2g per kg of body weight
+            const proteinCalories = proteinGrams * 4;
+            const fatGrams = Math.round((tdee * 0.25) / 9); // 25% of calories from fat
+            const remainingCalories = tdee - proteinCalories - (fatGrams * 9);
+            const carbGrams = Math.round(remainingCalories / 4);
+            
+            // Update display
+            document.getElementById('display-name').textContent = name;
+            document.getElementById('display-age').textContent = age;
+            document.getElementById('display-gender').textContent = gender === 'male' ? 'Male' : 'Female';
+            document.getElementById('display-weight').textContent = weight;
+            document.getElementById('display-height').textContent = height;
+            document.getElementById('display-bmi').textContent = bmi.toFixed(1);
+            document.getElementById('bmi-category').textContent = bmiCategory;
+            document.getElementById('bmi-category').className = 'bmi-indicator ' + bmiCategory.toLowerCase().replace(' ', '');
+            document.getElementById('display-calories').textContent = tdee;
+            document.getElementById('display-protein').textContent = proteinGrams;
+            document.getElementById('display-carbs').textContent = carbGrams;
+            document.getElementById('display-fat').textContent = fatGrams;
+
+            const totalCalories = proteinCalories + (carbGrams * 4) + (fatGrams * 9);
+            const proteinPercentage = (proteinCalories / totalCalories) * 100;
+            const carbsPercentage = (carbGrams * 4 / totalCalories) * 100;
+            const fatPercentage = (fatGrams * 9 / totalCalories) * 100;
+
+            const progressBars = document.getElementById('progress-bars');
+            progressBars.innerHTML = `
+                <div class="progress-bar protein-bar" style="width: ${proteinPercentage}%">${proteinGrams}g</div>
+                <div class="progress-bar carbs-bar" style="width: ${carbsPercentage}%">${carbGrams}g</div>
+                <div class="progress-bar fat-bar" style="width: ${fatPercentage}%">${fatGrams}g</div>
+            `;
+
+            
+            // Save to localStorage
+            const userData = {
+                name,
+                age,
+                gender,
+                weight,
+                height,
+                activity: activityLevel,
+                calories: tdee,
+                protein: proteinGrams,
+                carbs: carbGrams,
+                fat: fatGrams,
+                bmi,
+                bmiCategory
+            };
+            localStorage.setItem('userNutritionData', JSON.stringify(userData));
+            
+            // Show results
+            document.getElementById('results').style.display = 'block';
+        }
+        
+        function calculateBMI(weightKg, heightCm) {
+            const heightM = heightCm / 100;
+            return weightKg / (heightM * heightM);
+        }
+        
+        function getBMICategory(bmi) {
+            if (bmi < 18.5) return 'Underweight';
+            if (bmi < 25) return 'Normal';
+            if (bmi < 30) return 'Overweight';
+            return 'Obese';
+        }
+        
+        function goToMealPlan() {
+            window.location.href = 'mealplan.html';
+        }
+
+        function goBack() {
+            window.location.href = 'index.html'; // Change to your actual landing page URL
+        }
+    </script>
+</body>
+</html>
