@@ -1509,8 +1509,133 @@
                 "Include creatine supplementation"
             ]
         },
-        // Additional goals with similar structure...
-    };
+        'maintenance': {
+        suggestion: "Balanced nutrition with calorie equilibrium",
+        baseMeals: [
+            "Grilled Chicken with Quinoa and Steamed Vegetables",
+            "Salmon Buddha Bowl with Brown Rice",
+            "Whole Grain Pasta with Turkey Meatballs",
+            "Greek Yogurt with Mixed Nuts and Honey",
+            "Vegetable Stir-Fry with Tofu"
+        ],
+        dietaryAdditions: {
+            vegetarian: {
+                meals: [
+                    "Mushroom and Spinach Quesadilla",
+                    "Chickpea Curry with Basmati Rice",
+                    "Vegetable Lentil Soup",
+                    "Caprese Salad with Whole Grain Bread"
+                ],
+                tips: [
+                    "Maintain protein intake with plant-based sources",
+                    "Include a variety of colorful vegetables"
+                ]
+            },
+            'heart-health': {
+                meals: [
+                    "Baked Salmon with Asparagus",
+                    "Walnut and Kale Salad",
+                    "Oatmeal with Chia Seeds and Berries",
+                    "Avocado Toast with Poached Egg"
+                ],
+                tips: [
+                    "Focus on omega-3 rich foods",
+                    "Limit saturated fats and sodium"
+                ]
+            }
+        },
+        baseTips: [
+            "Maintain 40% carbs, 30% protein, 30% fat ratio",
+            "Practice portion control",
+            "Stay hydrated with 8-10 glasses of water daily"
+        ]
+    },
+
+    'heart-health': {
+        suggestion: "Low-sodium, high-fiber meals with healthy fats",
+        baseMeals: [
+            "Grilled Salmon with Quinoa and Steamed Broccoli",
+            "Mediterranean Salad with Olive Oil Dressing",
+            "Oatmeal with Flaxseeds and Blueberries",
+            "Walnut-Crusted Chicken with Roasted Vegetables",
+            "Avocado and Spinach Smoothie"
+        ],
+        dietaryAdditions: {
+            vegan: {
+                meals: [
+                    "Chia Seed Pudding with Almond Milk",
+                    "Lentil and Vegetable Soup",
+                    "Roasted Chickpea and Kale Salad",
+                    "Quinoa Stuffed Bell Peppers"
+                ],
+                tips: [
+                    "Use nutritional yeast for B12",
+                    "Include plant-based omega-3 sources"
+                ]
+            },
+            'low-carb': {
+                meals: [
+                    "Zucchini Noodles with Pesto",
+                    "Cauliflower Rice Stir-Fry",
+                    "Grilled Chicken with Avocado Salsa",
+                    "Salmon and Asparagus Bake"
+                ],
+                tips: [
+                    "Focus on monounsaturated fats",
+                    "Limit processed foods"
+                ]
+            }
+        },
+        baseTips: [
+            "Aim for <1500mg sodium daily",
+            "Include 25-30g of fiber daily",
+            "Choose unsaturated fats over saturated"
+        ]
+    },
+
+    'balanced-diet': {
+        suggestion: "Varied nutrition from all food groups",
+        baseMeals: [
+            "Grilled Chicken with Sweet Potato and Greens",
+            "Whole Grain Wrap with Hummus and Vegetables",
+            "Salmon Bowl with Brown Rice and Edamame",
+            "Greek Yogurt Parfait with Granola and Fruit",
+            "Vegetable Omelette with Whole Grain Toast"
+        ],
+        dietaryAdditions: {
+            vegetarian: {
+                meals: [
+                    "Quinoa and Black Bean Salad",
+                    "Vegetable Curry with Coconut Milk",
+                    "Spinach and Feta Stuffed Portobello",
+                    "Lentil Shepherd's Pie"
+                ],
+                tips: [
+                    "Combine different plant proteins",
+                    "Include iron-rich foods with vitamin C"
+                ]
+            },
+            'gluten-free': {
+                meals: [
+                    "Buckwheat Pancakes with Berries",
+                    "Rice Noodle Stir-Fry",
+                    "Stuffed Acorn Squash",
+                    "Grilled Fish with Mashed Cauliflower"
+                ],
+                tips: [
+                    "Focus on naturally gluten-free grains",
+                    "Check labels for hidden gluten"
+                ]
+            }
+        },
+        baseTips: [
+            "Follow the 50-25-25 plate method (veg, protein, grains)",
+            "Include 5-7 servings of fruits/vegetables",
+            "Vary protein sources throughout the week"
+        ]
+    }
+};
+    
 
     function generateRecommendations() {
         const primaryGoal = document.getElementById('primary-goal').value;
