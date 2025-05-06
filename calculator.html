@@ -60,39 +60,151 @@
             margin-bottom: 8px;
         }
         
-        .btn {
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            border: none;
-            font-weight: bold;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-        
         .results {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #f0f8ff;
-            border-radius: 8px;
-            display: none;
-        }
-        
-        .results h3 {
-            margin-top: 0;
-        }
-        
-        .bmi-indicator {
-            font-weight: bold;
-        }
-        
-        .underweight { color: #ff9800; }
-        .normal { color: #4caf50; }
-        .overweight { color: #ff9800; }
-        .obese { color: #f44336; }
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    display: none;
+    animation: fadeIn 0.5s ease-in;
+    max-width: 800px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.results h2 {
+    color: var(--dark);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 3px solid var(--primary);
+    position: relative;
+    text-align: center;
+}
+
+.user-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.user-info p {
+    background: var(--light);
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-size: 20px;
+}
+
+.user-info span {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.bmi-indicator {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.9em;
+}
+
+.underweight {
+    color: var(--warning);
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid var(--warning);
+}
+
+.normal {
+    color: var(--success);
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid var(--success);
+}
+
+.overweight {
+    color: var(--warning);
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid var(--warning);
+}
+
+.obese {
+    color: var(--danger);
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid var(--danger);
+}
+
+.calorie-needs {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(6, 156, 84, 0.2);
+}
+
+.calorie-needs strong {
+    font-size: 1.8rem;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.macronutrient-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.macronutrient-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.macronutrient-item:hover {
+    transform: translateY(-5px);
+}
+
+.macronutrient-item h4 {
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.macronutrient-item p {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    color: #069C54;
+}
+
+@media (max-width: 768px) {
+    .results {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .macronutrient-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .user-info {
+        grid-template-columns: 1fr;
+    }
+}
+
 
         .form-section {
             margin-bottom: 30px;
@@ -103,7 +215,7 @@
         }
 
         .section-title {
-            color: var(--secondary);
+            color: var(--primary);
             border-bottom: 2px solid var(--primary);
             padding-bottom: 10px;
             margin-bottom: 20px;
@@ -156,7 +268,7 @@
 
 .input {
     width: 100%;
-    max-width: 100%;
+    max-width: 80%;
     height: 44px;
     background-color: #05060f0a;
     border-radius: .5rem;
@@ -177,11 +289,11 @@
 
 .input:hover, .input:focus, .input-group:hover .input {
     outline: none;
-    border-color: #A9C46C; /* Changed to match your primary color */
+            border-color: #048654; /* Changed to match your primary color */
 }
 
 .input-group:hover .label, .input:focus {
-    color: #5D8736; /* Adjusted to your theme color */
+    color: #048654; /* Adjusted to your theme color */
 }
 
 /* Modified Select Dropdown to Match Input Style */
@@ -289,35 +401,47 @@ select.input {
         display: block;
     }
 
-    .btn-primary {
-        width: 100%;
-        padding: 16px 24px;
-        font-size: 1.1rem;
-        border-radius: 8px;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        letter-spacing: 0.5px;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 4px 12px rgba(169, 196, 108, 0.25);
-    }
+    button {
+  padding: 1.3em 3em;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
 
-    .btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(169, 196, 108, 0.35);
-    }
+.btn-primary {
+    background-color: #92989e; /* Gray color */
+    color: white;
+    border: 2px solid transparent;
+    padding: 1.3em 3em;
+    width: 100%;
+}
 
-    .btn-primary::after {
-        content: "→";
-        margin-left: 10px;
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
+.btn-secondary {
+    background-color: #92989e; /* Gray color */
+    color: white;
+    border: 2px solid transparent;
+}
 
-    .btn-primary:hover::after {
-        opacity: 1;
-        margin-left: 15px;
-    }
-    
+button:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+
     </style>
 </head>
 <body>
@@ -326,7 +450,7 @@ select.input {
         <!-- Add back button here -->
         <button class="back-button" onclick="window.location.href='index.html'">⬅</button>
         
-        <h1>Nutriplan Calculator</h1>
+        <h1 class="logo-title">Nutriplan Calculator</h1>
 
         <!-- Personal Information Section -->
         <div class="form-section">
@@ -334,7 +458,7 @@ select.input {
             
             <div class="input-group">
                 <label class="label" for="user-name">Full Name</label>
-                <input type="text" id="user-name" class="input" placeholder="John Doe">
+                <input type="text" id="user-name" class="input" placeholder="Name">
             </div>
         
             <div class="input-group">
@@ -429,11 +553,11 @@ select.input {
                 <p>Name: <span id="display-name"></span></p>
                 <p>Age: <span id="display-age"></span>, Gender: <span id="display-gender"></span></p>
                 <p>Weight: <span id="display-weight"></span> kg, Height: <span id="display-height"></span> cm</p>
-                <p>BMI: <span id="display-bmi"></span> (<span id="bmi-category" class="bmi-indicator"></span>)</p>
+                <p>BMI: <span id="display-bmi"></span> <span id="bmi-category" class="bmi-indicator"></span></p>
             </div>
 
             <div class="calorie-needs">
-                <p>Daily Calorie Needs: <strong><span id="display-calories"></span> kcal</strong></p>
+                <p>Daily Calorie Needs<strong><span id="display-calories"></span> kcal</strong></p>
             </div>
 
             <div class="macronutrient-info">
