@@ -44,20 +44,111 @@
                 }
                 
                 .user-summary {
-                    background-color: #f0f8ff;
-                    padding: 15px;
-                    border-radius: 8px;
-                    margin-bottom: 20px;
-                }
-            
-            .bmi-category {
-                font-weight: bold;
-            }
-            
-            .underweight { color: #ff9800; }
-            .normal { color: #4caf50; }
-            .overweight { color: #ff9800; }
-            .obese { color: #f44336; }
+    background: linear-gradient(145deg, var(--light), #ffffff);
+    border-left: 4px solid var(--secondary); /* Goals accent color */
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-weight: 100%;
+}
+
+.nutrition-goals {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 167, 38, 0.1);
+    border-radius: 4px;
+    display: inline-block;
+    margin: 0.5rem 0;
+    color: #048654;
+    
+}
+
+.user-summary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.user-summary h3 {
+    color: var(--dark);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.user-summary h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--primary);
+}
+
+.bmi-category {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+    transition: all 0.3s ease;
+}
+
+.underweight {
+    color: var(--warning);
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid var(--warning);
+}
+
+.normal {
+    color: var(--success);
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid var(--success);
+}
+
+.overweight {
+    color: var(--warning);
+    background: rgba(255, 152, 0, 0.1);
+    border: 1px solid var(--warning);
+}
+
+.obese {
+    color: var(--danger);
+    background: rgba(244, 67, 54, 0.1);
+    border: 1px solid var(--danger);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .user-summary {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .user-summary h3 {
+        font-size: 1.2rem;
+    }
+    
+    .bmi-category {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.8rem;
+    }
+}
+
+/* Animation */
+@keyframes statusPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.bmi-category:hover {
+    animation: statusPulse 0.8s ease;
+}
             
             .time-header {
                 display: flex;
@@ -196,24 +287,6 @@
                 margin-top: 10px;
             }
             
-            .btn {
-                padding: 8px 15px;
-                border-radius: 4px;
-                cursor: pointer;
-            }
-            
-            .btn-primary {
-                background-color: var(--primary);
-                color: white;
-                border: none;
-            }
-            
-            .btn-secondary {
-                background-color: #6c757d;
-                color: white;
-                border: none;
-            }
-            
             table {
                 width: 100%;
                 border-collapse: collapse;
@@ -331,7 +404,7 @@
     .diet-label {
         display: flex;
         align-items: center;
-        padding: 1.2rem;
+        
         gap: 1rem;
         transition: background-color 0.3s ease;
     }
@@ -463,6 +536,7 @@
         background: #f8f9fa;
         border-radius: 8px;
         animation: slideIn 0.6s ease;
+        font-weight: bold;
     }
 
     .meal-tag {
@@ -479,6 +553,7 @@
         margin: 0.3rem 0;
         background: #fff3e0;
         border-left: 4px solid #ffab00;
+        font-weight: bold;
     }
 
     @keyframes slideIn {
@@ -502,6 +577,170 @@
         transform: translateY(20px);
     }
 
+    .goal-select-container {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.goal-select {
+    display: none;
+}
+
+.goal-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.goal-option {
+    position: relative;
+    padding: 1.5rem;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.goal-option:hover {
+    transform: translateY(-2px);
+    border-color: #A9C46C;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.goal-option.selected {
+    border-color: #069C54;
+    background-color: rgba(169, 196, 108, 0.1);
+}
+
+.goal-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.goal-text {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.25rem;
+}
+
+.checkmark {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #069C54;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.goal-option.selected .checkmark {
+    opacity: 1;
+}
+
+.goal-label {
+    display: block;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+button {
+  padding: 1.3em 3em;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Default styling */
+.btn-primary {
+    background-color: #92989e;
+    color: white;
+    border: 2px solid transparent;
+    margin: 0 10px; /* Horizontal spacing */
+}
+
+.btn-secondary {
+    background-color: #92989e;
+    color: white;
+    border: 2px solid transparent;
+    margin: 0 10px; /* Horizontal spacing */
+}
+
+/* Container for buttons */
+.settings-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Modern gap spacing */
+    flex-wrap: wrap; /* Allow wrapping */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .settings-buttons {
+        flex-direction: column; /* Stack vertically on mobile */
+        align-items: center;
+        gap: 15px; /* Vertical spacing */
+    }
+    
+    .btn-primary, .btn-secondary {
+        margin: 0 0 15px 0; /* Vertical spacing */
+        width: 80%; /* Better mobile touch targets */
+        max-width: 300px; /* Limit maximum width */
+    }
+    
+    .btn:last-child {
+        margin-bottom: 0; /* Remove bottom margin from last button */
+    }
+}
+
+button:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+
+.diet-suggestion {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+
+.diet-suggestion h3 {
+    color: #069C54;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+#diet-suggestion-text {
+    font-weight: 600; /* Semi-bold */
+    color: #343a40;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* For even stronger emphasis */
+.suggestion-text {
+    font-weight: 700 !important; /* Bold */
+    font-size: 1.1rem;
+}
 
         </style>
     </head>
@@ -558,17 +797,48 @@
                     <h2 class="section-title">Nutri Health Goals</h2>
                     <div class="health-goals-form">
                         <div class="form-group">
-                            <label>Your Primary Goal</label>
-                            <select id="primary-goal" class="input">
-                                <option value="">Select your main goal</option>
-                                <option value="weight-loss">Weight Loss</option>
-                                <option value="muscle-gain">Muscle Gain</option>
-                                <option value="maintenance">Maintenance</option>
-                                <option value="heart-health">Heart Health</option>
-                                <option value="balanced-diet">Balanced Diet</option>
-                            </select>
+                            <label class="goal-label">Your Primary Goal</label>
+                            <div class="goal-select-container">
+                                <select id="primary-goal" class="goal-select">
+                                    <option value="">Select your main goal</option>
+                                    <option value="weight-loss">Weight Loss</option>
+                                    <option value="muscle-gain">Muscle Gain</option>
+                                    <option value="maintenance">Maintenance</option>
+                                    <option value="heart-health">Heart Health</option>
+                                    <option value="balanced-diet">Balanced Diet</option>
+                                </select>
+                                <div class="goal-options-grid">
+                                    <div class="goal-option" data-value="weight-loss">
+                                        <div class="goal-icon">🏃🔥</div>
+                                        <div class="goal-text">Weight Loss</div>
+                                        <div class="checkmark">✓</div>
+                                    </div>
+                                    <div class="goal-option" data-value="muscle-gain">
+                                        <div class="goal-icon">💪</div>
+                                        <div class="goal-text">Muscle Gain</div>
+                                        <div class="checkmark">✓</div>
+                                    </div>
+                                    <div class="goal-option" data-value="maintenance">
+                                        <div class="goal-icon">⚖️</div>
+                                        <div class="goal-text">Maintenance</div>
+                                        <div class="checkmark">✓</div>
+                                    </div>
+                                    <div class="goal-option" data-value="heart-health">
+                                        <div class="goal-icon">❤️</div>
+                                        <div class="goal-text">Heart Health</div>
+                                        <div class="checkmark">✓</div>
+                                    </div>
+                                    <div class="goal-option" data-value="balanced-diet">
+                                        <div class="goal-icon">🥗</div>
+                                        <div class="goal-text">Balanced Diet</div>
+                                        <div class="checkmark">✓</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-        
+                    </div>
+                </div>
+                <div id="meals-container">
                         <div class="form-group">
                             <label>Dietary Preferences</label>
                             <div class="dietary-preferences">
@@ -626,20 +896,20 @@
                     <h2 class="section-title">Personalized Recommendations</h2>
                     
                     <div class="diet-suggestion">
-                        <h3>Diet Suggestion:</h3>
-                        <p id="diet-suggestion-text"></p>
+                        <h3>Diet Suggestions</h3>
+                        <p id="diet-suggestion-text" class="suggestion-text"></p>
                     </div>
         
                     <div class="weekly-meals">
-                        <h3>Weekly Meal Suggestions:</h3>
+                        <h3>Weekly Meal Suggestions</h3>
                         <ul id="weekly-meals-list"></ul>
                     </div>
         
                     <div class="daily-tips">
-                        <h3>Daily Health Tips:</h3>
+                        <h3>Daily Health Tips</h3>
                         <ul id="daily-tips-list"></ul>
                     </div>
-
+                
                 <!-- Breakfast -->
                 <div class="meal-card" data-meal="breakfast">
                     <div class="meal-header">
@@ -1800,6 +2070,27 @@
                 loadHealthGoals();
                 setInterval(updateTime, 1000);
             };
+
+            document.querySelectorAll('.goal-option').forEach(option => {
+    option.addEventListener('click', function() {
+        // Remove previous selections
+        document.querySelectorAll('.goal-option').forEach(opt => 
+            opt.classList.remove('selected'));
+        
+        // Mark current selection
+        this.classList.add('selected');
+        
+        // Update the hidden select element
+        const select = document.getElementById('primary-goal');
+        select.value = this.dataset.value;
+    });
+});
+
+// Initialize selection if already chosen
+const currentGoal = document.getElementById('primary-goal').value;
+if(currentGoal) {
+    document.querySelector(`.goal-option[data-value="${currentGoal}"]`).classList.add('selected');
+}
 
         </script>
     </body>
