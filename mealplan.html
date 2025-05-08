@@ -1680,328 +1680,328 @@ button:active {
                 setInterval(updateTime, 1000);
             };
 
-            const recommendations = {
-    'weight-loss': {
-        suggestion: "Calorie-controlled meals for sustainable weight management",
-        baseMeals: [
-            "Grilled Chicken Salad with Lemon Vinaigrette",
-            "Turkey and Avocado Lettuce Wraps",
-            "Baked Cod with Roasted Vegetables",
-            "Egg White Spinach Frittata",
-            "Greek Yogurt with Mixed Berries"
-        ],
-        dietaryAdditions: {
-            vegetarian: {
-                meals: [
-                    "Lentil and Quinoa Stuffed Peppers",
-                    "Chickpea and Avocado Salad",
-                    "Zucchini Noodles with Pesto",
-                    "Tofu Buddha Bowl with Tahini Dressing",
-                    "Spiced Chickpea and Spinach Stew",
-                    "Roasted Vegetable and Hummus Wrap",
-                    "Mushroom and Brown Rice Stuffed Squash",
-                    "Vegetarian Chili with Cauliflower Rice"
-                ],
-                tips: [
-                    "Combine legumes with whole grains for complete proteins",
-                    "Include 2 servings of leafy greens daily",
-                    "Use nutritional yeast as a vitamin B12 source",
-                    "Opt for whole food fats like avocados and nuts"
-                ]
+                const recommendations = {
+        'weight-loss': {
+            suggestion: "Calorie-controlled meals for sustainable weight management",
+            baseMeals: [
+                "Grilled Chicken Salad with Lemon Vinaigrette",
+                "Turkey and Avocado Lettuce Wraps",
+                "Baked Cod with Roasted Vegetables",
+                "Egg White Spinach Frittata",
+                "Greek Yogurt with Mixed Berries"
+            ],
+            dietaryAdditions: {
+                vegetarian: {
+                    meals: [
+                        "Lentil and Quinoa Stuffed Peppers",
+                        "Chickpea and Avocado Salad",
+                        "Zucchini Noodles with Pesto",
+                        "Tofu Buddha Bowl with Tahini Dressing",
+                        "Spiced Chickpea and Spinach Stew",
+                        "Roasted Vegetable and Hummus Wrap",
+                        "Mushroom and Brown Rice Stuffed Squash",
+                        "Vegetarian Chili with Cauliflower Rice"
+                    ],
+                    tips: [
+                        "Combine legumes with whole grains for complete proteins",
+                        "Include 2 servings of leafy greens daily",
+                        "Use nutritional yeast as a vitamin B12 source",
+                        "Opt for whole food fats like avocados and nuts"
+                    ]
+                },
+                vegan: {
+                    meals: [
+                        "Vegan Buddha Bowl with Tahini Dressing",
+                        "Lentil and Sweet Potato Curry",
+                        "Chickpea Shakshuka with Whole Grain Toast",
+                        "Quinoa and Black Bean Stuffed Peppers",
+                        "Vegan Cauliflower Fried Rice",
+                        "Jackfruit Tacos with Mango Salsa",
+                        "Spiralized Vegetable Salad with Lemon-Tahini",
+                        "Mushroom Walnut Lettuce Wraps"
+                    ],
+                    tips: [
+                        "Add ground flaxseed for omega-3 fatty acids",
+                        "Include vitamin C-rich foods with iron sources",
+                        "Consider algae-based omega-3 supplements",
+                        "Use fortified plant milks for calcium"
+                    ]
+                },
+                'low-carb': {
+                    meals: [
+                        "Cauliflower Pizza with Goat Cheese",
+                        "Zucchini Lasagna with Meat Sauce",
+                        "Avocado Tuna Salad Lettuce Wraps",
+                        "Baked Salmon with Asparagus",
+                        "Eggplant and Ground Turkey Moussaka",
+                        "Keto Cobb Salad with Avocado Dressing",
+                        "Stuffed Chicken Breast with Spinach and Feta",
+                        "Cauliflower Mash with Garlic Herb Chicken"
+                    ],
+                    tips: [
+                        "Focus on healthy fats like avocado and olive oil",
+                        "Choose high-fiber low-carb vegetables",
+                        "Monitor electrolyte intake",
+                        "Consider MCT oil for energy"
+                    ]
+                }
             },
-            vegan: {
-                meals: [
-                    "Vegan Buddha Bowl with Tahini Dressing",
-                    "Lentil and Sweet Potato Curry",
-                    "Chickpea Shakshuka with Whole Grain Toast",
-                    "Quinoa and Black Bean Stuffed Peppers",
-                    "Vegan Cauliflower Fried Rice",
-                    "Jackfruit Tacos with Mango Salsa",
-                    "Spiralized Vegetable Salad with Lemon-Tahini",
-                    "Mushroom Walnut Lettuce Wraps"
-                ],
-                tips: [
-                    "Add ground flaxseed for omega-3 fatty acids",
-                    "Include vitamin C-rich foods with iron sources",
-                    "Consider algae-based omega-3 supplements",
-                    "Use fortified plant milks for calcium"
-                ]
-            },
-            'low-carb': {
-                meals: [
-                    "Cauliflower Pizza with Goat Cheese",
-                    "Zucchini Lasagna with Meat Sauce",
-                    "Avocado Tuna Salad Lettuce Wraps",
-                    "Baked Salmon with Asparagus",
-                    "Eggplant and Ground Turkey Moussaka",
-                    "Keto Cobb Salad with Avocado Dressing",
-                    "Stuffed Chicken Breast with Spinach and Feta",
-                    "Cauliflower Mash with Garlic Herb Chicken"
-                ],
-                tips: [
-                    "Focus on healthy fats like avocado and olive oil",
-                    "Choose high-fiber low-carb vegetables",
-                    "Monitor electrolyte intake",
-                    "Consider MCT oil for energy"
-                ]
-            }
+            baseTips: [
+                "Aim for 30% protein, 35% carbs, 35% fat ratio",
+                "Practice time-restricted eating (14-16 hour fasts)",
+                "Drink 500ml water 30 minutes before meals",
+                "Incorporate daily non-exercise activity"
+            ]
         },
-        baseTips: [
-            "Aim for 30% protein, 35% carbs, 35% fat ratio",
-            "Practice time-restricted eating (14-16 hour fasts)",
-            "Drink 500ml water 30 minutes before meals",
-            "Incorporate daily non-exercise activity"
-        ]
-    },
 
-    'muscle-gain': {
-        suggestion: "Protein-rich nutrition for lean muscle growth",
-        baseMeals: [
-            "Grilled Sirloin with Sweet Potato Mash",
-            "Salmon and Quinoa Power Bowl",
-            "Cottage Cheese Protein Pancakes",
-            "Chicken and Brown Rice Meal Prep",
-            "Greek Yogurt Parfait with Granola"
-        ],
-        dietaryAdditions: {
-            vegetarian: {
-                meals: [
-                    "Paneer Tikka with Basmati Rice",
-                    "Lentil and Spinach Curry with Brown Rice",
-                    "Tempeh Stir-Fry with Peanut Sauce",
-                    "Vegetarian Chili with Cornbread",
-                    "Cottage Cheese and Chia Seed Pudding",
-                    "Quinoa and Black Bean Burrito Bowl",
-                    "Greek Yogurt with Mixed Berries and Almonds",
-                    "Edamame and Brown Rice Buddha Bowl"
-                ],
-                tips: [
-                    "Combine complementary plant proteins daily",
-                    "Consider pea protein supplementation",
-                    "Include creatine-rich foods like spinach",
-                    "Time protein intake around workouts"
-                ]
+        'muscle-gain': {
+            suggestion: "Protein-rich nutrition for lean muscle growth",
+            baseMeals: [
+                "Grilled Sirloin with Sweet Potato Mash",
+                "Salmon and Quinoa Power Bowl",
+                "Cottage Cheese Protein Pancakes",
+                "Chicken and Brown Rice Meal Prep",
+                "Greek Yogurt Parfait with Granola"
+            ],
+            dietaryAdditions: {
+                vegetarian: {
+                    meals: [
+                        "Paneer Tikka with Basmati Rice",
+                        "Lentil and Spinach Curry with Brown Rice",
+                        "Tempeh Stir-Fry with Peanut Sauce",
+                        "Vegetarian Chili with Cornbread",
+                        "Cottage Cheese and Chia Seed Pudding",
+                        "Quinoa and Black Bean Burrito Bowl",
+                        "Greek Yogurt with Mixed Berries and Almonds",
+                        "Edamame and Brown Rice Buddha Bowl"
+                    ],
+                    tips: [
+                        "Combine complementary plant proteins daily",
+                        "Consider pea protein supplementation",
+                        "Include creatine-rich foods like spinach",
+                        "Time protein intake around workouts"
+                    ]
+                },
+                vegan: {
+                    meals: [
+                        "Vegan Protein Smoothie Bowl",
+                        "Seitan Stir-Fry with Broccoli",
+                        "Lentil and Mushroom Burger",
+                        "Chickpea and Tahini Wrap",
+                        "Vegan Protein Oatmeal with Almond Butter",
+                        "Tempeh Bacon with Sweet Potato Hash",
+                        "Spirulina Chia Pudding with Hemp Seeds",
+                        "Black Bean and Quinoa Power Salad"
+                    ],
+                    tips: [
+                        "Use blended protein sources (pea + rice)",
+                        "Include beta-alanine rich foods like mushrooms",
+                        "Consider vegan BCAAs supplementation",
+                        "Optimize vitamin D levels for muscle function"
+                    ]
+                },
+                'high-protein': {
+                    meals: [
+                        "Egg White and Turkey Bacon Wrap",
+                        "Protein Oatmeal with Peanut Butter",
+                        "Grilled Chicken Breast with Edamame",
+                        "Casein Protein Pudding with Berries",
+                        "Tuna Steak with Roasted Brussels Sprouts",
+                        "Beef and Broccoli Stir-Fry",
+                        "Salmon Patty with Greek Yogurt Sauce",
+                        "Protein Pancakes with Sugar-Free Syrup"
+                    ],
+                    tips: [
+                        "Consume 20-40g protein every 3-4 hours",
+                        "Prioritize post-workout protein synthesis window",
+                        "Include slow-digesting proteins before bed",
+                        "Combine protein with vitamin C for absorption"
+                    ]
+                }
             },
-            vegan: {
-                meals: [
-                    "Vegan Protein Smoothie Bowl",
-                    "Seitan Stir-Fry with Broccoli",
-                    "Lentil and Mushroom Burger",
-                    "Chickpea and Tahini Wrap",
-                    "Vegan Protein Oatmeal with Almond Butter",
-                    "Tempeh Bacon with Sweet Potato Hash",
-                    "Spirulina Chia Pudding with Hemp Seeds",
-                    "Black Bean and Quinoa Power Salad"
-                ],
-                tips: [
-                    "Use blended protein sources (pea + rice)",
-                    "Include beta-alanine rich foods like mushrooms",
-                    "Consider vegan BCAAs supplementation",
-                    "Optimize vitamin D levels for muscle function"
-                ]
-            },
-            'high-protein': {
-                meals: [
-                    "Egg White and Turkey Bacon Wrap",
-                    "Protein Oatmeal with Peanut Butter",
-                    "Grilled Chicken Breast with Edamame",
-                    "Casein Protein Pudding with Berries",
-                    "Tuna Steak with Roasted Brussels Sprouts",
-                    "Beef and Broccoli Stir-Fry",
-                    "Salmon Patty with Greek Yogurt Sauce",
-                    "Protein Pancakes with Sugar-Free Syrup"
-                ],
-                tips: [
-                    "Consume 20-40g protein every 3-4 hours",
-                    "Prioritize post-workout protein synthesis window",
-                    "Include slow-digesting proteins before bed",
-                    "Combine protein with vitamin C for absorption"
-                ]
-            }
+            baseTips: [
+                "Aim for 1.6-2.2g protein per kg body weight",
+                "Time carbohydrates around workouts",
+                "Include creatine monohydrate supplementation",
+                "Prioritize progressive overload in training"
+            ]
         },
-        baseTips: [
-            "Aim for 1.6-2.2g protein per kg body weight",
-            "Time carbohydrates around workouts",
-            "Include creatine monohydrate supplementation",
-            "Prioritize progressive overload in training"
-        ]
-    },
-      'maintenance': {
-        suggestion: "Balanced nutrition for weight maintenance",
-        baseMeals: [
-            "Grilled Chicken with Quinoa and Roasted Vegetables",
-            "Salmon Buddha Bowl with Brown Rice and Avocado",
-            "Whole Grain Pasta with Turkey Meatballs",
-            "Greek Yogurt Parfait with Mixed Nuts and Berries",
-            "Vegetable Stir-Fry with Tofu and Cashews",
-            "Egg and Avocado Breakfast Wrap",
-            "Lean Beef Chili with Sweet Potato",
-            "Mediterranean Lentil Salad with Feta"
-        ],
-        dietaryAdditions: {
-            vegetarian: {
-                meals: [
-                    "Mushroom and Spinach Quesadilla",
-                    "Chickpea Curry with Coconut Milk",
-                    "Vegetable Lentil Soup with Whole Grain Bread",
-                    "Caprese Salad with Balsamic Glaze",
-                    "Stuffed Portobello Mushrooms with Goat Cheese",
-                    "Vegetarian Sushi Rolls with Brown Rice",
-                    "Eggplant Parmesan with Zucchini Noodles",
-                    "Quinoa and Roasted Vegetable Bowl"
-                ],
-                tips: [
-                    "Include fermented foods for gut health",
-                    "Rotate protein sources for nutrient diversity",
-                    "Choose whole grain carbohydrates",
-                    "Incorporate omega-3 rich seeds like chia and flax"
-                ]
+        'maintenance': {
+            suggestion: "Balanced nutrition for weight maintenance",
+            baseMeals: [
+                "Grilled Chicken with Quinoa and Roasted Vegetables",
+                "Salmon Buddha Bowl with Brown Rice and Avocado",
+                "Whole Grain Pasta with Turkey Meatballs",
+                "Greek Yogurt Parfait with Mixed Nuts and Berries",
+                "Vegetable Stir-Fry with Tofu and Cashews",
+                "Egg and Avocado Breakfast Wrap",
+                "Lean Beef Chili with Sweet Potato",
+                "Mediterranean Lentil Salad with Feta"
+            ],
+            dietaryAdditions: {
+                vegetarian: {
+                    meals: [
+                        "Mushroom and Spinach Quesadilla",
+                        "Chickpea Curry with Coconut Milk",
+                        "Vegetable Lentil Soup with Whole Grain Bread",
+                        "Caprese Salad with Balsamic Glaze",
+                        "Stuffed Portobello Mushrooms with Goat Cheese",
+                        "Vegetarian Sushi Rolls with Brown Rice",
+                        "Eggplant Parmesan with Zucchini Noodles",
+                        "Quinoa and Roasted Vegetable Bowl"
+                    ],
+                    tips: [
+                        "Include fermented foods for gut health",
+                        "Rotate protein sources for nutrient diversity",
+                        "Choose whole grain carbohydrates",
+                        "Incorporate omega-3 rich seeds like chia and flax"
+                    ]
+                },
+                'heart-health': {
+                    meals: [
+                        "Baked Salmon with Lemon and Dill",
+                        "Walnut and Kale Salad with Pomegranate",
+                        "Oatmeal with Chia Seeds and Almond Butter",
+                        "Avocado Toast with Smoked Paprika",
+                        "Grilled Chicken with Steamed Artichokes",
+                        "Farro Salad with Roasted Vegetables",
+                        "Mackerel Salad with Mixed Greens",
+                        "Berry Smoothie with Spinach and Flaxseed"
+                    ],
+                    tips: [
+                        "Limit added sugars to <25g daily",
+                        "Include 2 servings of fatty fish weekly",
+                        "Choose high-fiber snacks",
+                        "Use herbs instead of salt for flavor"
+                    ]
+                }
             },
-            'heart-health': {
-                meals: [
-                    "Baked Salmon with Lemon and Dill",
-                    "Walnut and Kale Salad with Pomegranate",
-                    "Oatmeal with Chia Seeds and Almond Butter",
-                    "Avocado Toast with Smoked Paprika",
-                    "Grilled Chicken with Steamed Artichokes",
-                    "Farro Salad with Roasted Vegetables",
-                    "Mackerel Salad with Mixed Greens",
-                    "Berry Smoothie with Spinach and Flaxseed"
-                ],
-                tips: [
-                    "Limit added sugars to <25g daily",
-                    "Include 2 servings of fatty fish weekly",
-                    "Choose high-fiber snacks",
-                    "Use herbs instead of salt for flavor"
-                ]
-            }
+            baseTips: [
+                "Maintain 40% carbs, 30% protein, 30% fat ratio",
+                "Practice mindful eating techniques",
+                "Stay hydrated with herbal teas and water",
+                "Include daily physical activity"
+            ]
         },
-        baseTips: [
-            "Maintain 40% carbs, 30% protein, 30% fat ratio",
-            "Practice mindful eating techniques",
-            "Stay hydrated with herbal teas and water",
-            "Include daily physical activity"
-        ]
-    },
 
-    'heart-health': {
-        suggestion: "Cardiovascular-supportive nutrition plan",
-        baseMeals: [
-            "Grilled Salmon with Asparagus and Quinoa",
-            "Mediterranean Chickpea Salad",
-            "Oatmeal with Walnuts and Blueberries",
-            "Avocado and Spinach Smoothie Bowl",
-            "Baked Cod with Garlic and Olive Oil",
-            "Kale and White Bean Soup",
-            "Brown Rice Sushi with Cucumber and Avocado",
-            "Grilled Chicken with Beetroot Salad"
-        ],
-        dietaryAdditions: {
-            vegan: {
-                meals: [
-                    "Chia Pudding with Almond Milk and Berries",
-                    "Lentil and Vegetable Stir-Fry",
-                    "Roasted Cauliflower and Chickpea Bowl",
-                    "Quinoa Stuffed Bell Peppers",
-                    "Mushroom and Barley Soup",
-                    "Vegan Lentil Loaf with Mashed Potatoes",
-                    "Spiralized Zucchini with Marinara Sauce",
-                    "Black Bean and Sweet Potato Chili"
-                ],
-                tips: [
-                    "Include 1 tbsp ground flaxseed daily",
-                    "Choose whole food fats over oils",
-                    "Opt for low-sodium canned goods",
-                    "Consider algal oil supplements for DHA"
-                ]
+        'heart-health': {
+            suggestion: "Cardiovascular-supportive nutrition plan",
+            baseMeals: [
+                "Grilled Salmon with Asparagus and Quinoa",
+                "Mediterranean Chickpea Salad",
+                "Oatmeal with Walnuts and Blueberries",
+                "Avocado and Spinach Smoothie Bowl",
+                "Baked Cod with Garlic and Olive Oil",
+                "Kale and White Bean Soup",
+                "Brown Rice Sushi with Cucumber and Avocado",
+                "Grilled Chicken with Beetroot Salad"
+            ],
+            dietaryAdditions: {
+                vegan: {
+                    meals: [
+                        "Chia Pudding with Almond Milk and Berries",
+                        "Lentil and Vegetable Stir-Fry",
+                        "Roasted Cauliflower and Chickpea Bowl",
+                        "Quinoa Stuffed Bell Peppers",
+                        "Mushroom and Barley Soup",
+                        "Vegan Lentil Loaf with Mashed Potatoes",
+                        "Spiralized Zucchini with Marinara Sauce",
+                        "Black Bean and Sweet Potato Chili"
+                    ],
+                    tips: [
+                        "Include 1 tbsp ground flaxseed daily",
+                        "Choose whole food fats over oils",
+                        "Opt for low-sodium canned goods",
+                        "Consider algal oil supplements for DHA"
+                    ]
+                },
+                'low-sodium': {
+                    meals: [
+                        "Herb-Roasted Chicken with Vegetables",
+                        "Fresh Spring Rolls with Peanut Sauce",
+                        "Homemade Vegetable Soup (no salt added)",
+                        "Grilled Shrimp with Mango Salsa",
+                        "Baked Sweet Potato with Black Beans",
+                        "Quinoa Salad with Fresh Herbs",
+                        "Steamed Vegetables with Lemon-Tahini Sauce",
+                        "Fresh Fruit with Unsalted Nuts"
+                    ],
+                    tips: [
+                        "Rinse canned beans thoroughly",
+                        "Use citrus juices for flavor enhancement",
+                        "Limit processed foods",
+                        "Read nutrition labels carefully"
+                    ]
+                }
             },
-            'low-sodium': {
-                meals: [
-                    "Herb-Roasted Chicken with Vegetables",
-                    "Fresh Spring Rolls with Peanut Sauce",
-                    "Homemade Vegetable Soup (no salt added)",
-                    "Grilled Shrimp with Mango Salsa",
-                    "Baked Sweet Potato with Black Beans",
-                    "Quinoa Salad with Fresh Herbs",
-                    "Steamed Vegetables with Lemon-Tahini Sauce",
-                    "Fresh Fruit with Unsalted Nuts"
-                ],
-                tips: [
-                    "Rinse canned beans thoroughly",
-                    "Use citrus juices for flavor enhancement",
-                    "Limit processed foods",
-                    "Read nutrition labels carefully"
-                ]
-            }
+            baseTips: [
+                "Aim for <1500mg sodium daily",
+                "Include 25-30g of fiber daily",
+                "Consume 2 servings of fatty fish weekly",
+                "Limit saturated fats to <7% of calories"
+            ]
         },
-        baseTips: [
-            "Aim for <1500mg sodium daily",
-            "Include 25-30g of fiber daily",
-            "Consume 2 servings of fatty fish weekly",
-            "Limit saturated fats to <7% of calories"
-        ]
-    },
 
-    'balanced-diet': {
-        suggestion: "Comprehensive nutrition from all food groups",
-        baseMeals: [
-            "Grilled Chicken with Roasted Vegetables and Farro",
-            "Salmon Power Bowl with Brown Rice and Edamame",
-            "Whole Grain Wrap with Hummus and Crudités",
-            "Greek Yogurt Bowl with Granola and Fruit",
-            "Vegetable Omelette with Whole Grain Toast",
-            "Turkey and Avocado Sandwich on Whole Grain",
-            "Quinoa Salad with Mixed Beans and Vegetables",
-            "Baked Cod with Couscous and Steamed Greens"
-        ],
-        dietaryAdditions: {
-            vegetarian: {
-                meals: [
-                    "Chickpea and Vegetable Tagine",
-                    "Spinach and Ricotta Stuffed Pasta",
-                    "Vegetarian Bibimbap with Fried Egg",
-                    "Lentil and Vegetable Shepherd's Pie",
-                    "Halloumi and Vegetable Skewers",
-                    "Vegetarian Pho with Tofu",
-                    "Stuffed Acorn Squash with Wild Rice",
-                    "Vegetarian Paella with Artichokes"
-                ],
-                tips: [
-                    "Combine vitamin C with plant-based iron sources",
-                    "Include fermented soy products",
-                    "Rotate between different protein sources",
-                    "Monitor zinc and B12 intake"
-                ]
+        'balanced-diet': {
+            suggestion: "Comprehensive nutrition from all food groups",
+            baseMeals: [
+                "Grilled Chicken with Roasted Vegetables and Farro",
+                "Salmon Power Bowl with Brown Rice and Edamame",
+                "Whole Grain Wrap with Hummus and Crudités",
+                "Greek Yogurt Bowl with Granola and Fruit",
+                "Vegetable Omelette with Whole Grain Toast",
+                "Turkey and Avocado Sandwich on Whole Grain",
+                "Quinoa Salad with Mixed Beans and Vegetables",
+                "Baked Cod with Couscous and Steamed Greens"
+            ],
+            dietaryAdditions: {
+                vegetarian: {
+                    meals: [
+                        "Chickpea and Vegetable Tagine",
+                        "Spinach and Ricotta Stuffed Pasta",
+                        "Vegetarian Bibimbap with Fried Egg",
+                        "Lentil and Vegetable Shepherd's Pie",
+                        "Halloumi and Vegetable Skewers",
+                        "Vegetarian Pho with Tofu",
+                        "Stuffed Acorn Squash with Wild Rice",
+                        "Vegetarian Paella with Artichokes"
+                    ],
+                    tips: [
+                        "Combine vitamin C with plant-based iron sources",
+                        "Include fermented soy products",
+                        "Rotate between different protein sources",
+                        "Monitor zinc and B12 intake"
+                    ]
+                },
+                'gluten-free': {
+                    meals: [
+                        "Buckwheat Pancakes with Berry Compote",
+                        "Rice Noodle Pad Thai with Shrimp",
+                        "Stuffed Bell Peppers with Ground Turkey",
+                        "Grilled Salmon with Mashed Cauliflower",
+                        "Quinoa Fried Rice with Vegetables",
+                        "Chicken and Vegetable Stir-Fry with Tamari",
+                        "Polenta with Mushroom Ragout",
+                        "Shrimp and Avocado Lettuce Wraps"
+                    ],
+                    tips: [
+                        "Choose certified gluten-free oats",
+                        "Be cautious of cross-contamination",
+                        "Focus on naturally gluten-free whole foods",
+                        "Check condiments for hidden gluten"
+                    ]
+                }
             },
-            'gluten-free': {
-                meals: [
-                    "Buckwheat Pancakes with Berry Compote",
-                    "Rice Noodle Pad Thai with Shrimp",
-                    "Stuffed Bell Peppers with Ground Turkey",
-                    "Grilled Salmon with Mashed Cauliflower",
-                    "Quinoa Fried Rice with Vegetables",
-                    "Chicken and Vegetable Stir-Fry with Tamari",
-                    "Polenta with Mushroom Ragout",
-                    "Shrimp and Avocado Lettuce Wraps"
-                ],
-                tips: [
-                    "Choose certified gluten-free oats",
-                    "Be cautious of cross-contamination",
-                    "Focus on naturally gluten-free whole foods",
-                    "Check condiments for hidden gluten"
-                ]
-            }
-        },
-        baseTips: [
-            "Follow the 50-25-25 plate ratio (veg-protein-grains)",
-            "Include 5+ servings of colorful vegetables daily",
-            "Rotate protein sources throughout the week",
-            "Choose whole foods over processed alternatives"
-        ]
-    }
-};
+            baseTips: [
+                "Follow the 50-25-25 plate ratio (veg-protein-grains)",
+                "Include 5+ servings of colorful vegetables daily",
+                "Rotate protein sources throughout the week",
+                "Choose whole foods over processed alternatives"
+            ]
+        }
+    };
 
-function generateRecommendations() {
+    function generateRecommendations() {
     const primaryGoal = document.getElementById('primary-goal').value;
     const diets = Array.from(document.querySelectorAll('input[name="diet"]:checked')).map(cb => cb.value);
 
@@ -2011,49 +2011,91 @@ function generateRecommendations() {
     }
 
     const recommendation = JSON.parse(JSON.stringify(recommendations[primaryGoal]));
-    let meals = [];
+    
+    // Start with base meals and tips
+    let meals = [...recommendation.baseMeals];
     let tips = [...recommendation.baseTips];
 
-    // Start with base meals only if no diets selected
-    if (diets.length === 0) {
-        meals = [...recommendation.baseMeals];
-    } 
-    // Otherwise use only dietary-specific meals
-    else {
-        diets.forEach(diet => {
-            if (recommendation.dietaryAdditions[diet]) {
-                meals.push(...recommendation.dietaryAdditions[diet].meals);
-                tips.push(...recommendation.dietaryAdditions[diet].tips);
-            }
-        });
-    }
+    // Add dietary-specific meals and tips
+    diets.forEach(diet => {
+        if (recommendation.dietaryAdditions[diet]) {
+            meals.push(...recommendation.dietaryAdditions[diet].meals);
+            tips.push(...recommendation.dietaryAdditions[diet].tips);
+        }
+    });
 
-    // Apply strict dietary filters
+    // Apply strict dietary filters to combined meals
     meals = applyDietaryFilters(meals, diets);
-    tips = [...new Set(tips)]; // Remove duplicates
+    
+    // Remove duplicate tips
+    tips = [...new Set(tips)];
+
+    // Ensure minimum meal count with fallback
+    if (meals.length === 0) {
+        meals = ["Consult nutritionist for custom plan"];
+        tips = ["No automated recommendations found - please consult specialist"];
+    }
 
     // Generate dynamic suggestion
     const suggestion = generateDynamicSuggestion(primaryGoal, diets);
     
     updateUI(suggestion, meals, tips);
-}
+}   
 
-function applyDietaryFilters(meals, diets) {
-    const filterRules = {
-    vegetarian: ['chicken', 'turkey', 'beef', 'pork', 'fish', 'bacon', 'gelatin', 'seafood'],
-    vegan: ['cheese', 'yogurt', 'honey', 'egg', 'dairy', 'mayo', 'whey', 'casein'],
-    'low-carb': ['rice', 'pasta', 'bread', 'quinoa', 'oatmeal', 'potato', 'corn', 'legumes'],
-    'gluten-free': ['wheat', 'barley', 'rye', 'soy sauce', 'couscous', 'farro', 'semolina'],
-    'dairy-free': ['cheese', 'yogurt', 'milk', 'butter', 'casein', 'whey', 'ghee'],
-    'low-sodium': ['soy sauce', 'stock', 'broth', 'cured', 'pickled', 'sausage']
+   // Enhanced dietary filters
+   const filterRules = {
+    vegetarian: [
+        'chicken', 'turkey', 'beef', 'pork', 'fish', 'bacon',
+        'gelatin', 'seafood', 'meat', 'sirloin', 'salmon',
+        'anchovy', 'lamb', 'venison', 'shrimp', 'tuna'
+    ],
+    vegan: [
+        // Includes all vegetarian restrictions plus:
+        'cheese', 'yogurt', 'milk', 'butter', 'cream', 'egg',
+        'eggs', 'honey', 'whey', 'casein', 'mayo', 'ghee',
+        'shellac', 'carmine', 'collagen', 'lard', 'rennet'
+    ],
+    'high-protein': [], // No restrictions, just additions
+    'low-carb': [
+        'rice', 'pasta', 'bread', 'quinoa', 'oatmeal', 'potato',
+        'corn', 'legumes', 'grains', 'cereal', 'flour', 'sugar'
+    ],
+    'gluten-free': [
+        'wheat', 'barley', 'rye', 'soy sauce', 'couscous',
+        'farro', 'semolina', 'bread', 'pasta', 'bulgur'
+    ],
+    'dairy-free': [
+        'cheese', 'yogurt', 'milk', 'butter', 'casein',
+        'whey', 'ghee', 'cream', 'lactose'
+    ],
+    'low-sodium': [
+        'soy sauce', 'stock', 'broth', 'cured', 'pickled',
+        'sausage', 'bacon', 'ham', 'salami', 'bouillon'
+    ],
+    'heart-health': [
+        'fried', 'processed', 'sugar', 'pastry', 'cream',
+        'shortening', 'trans fat', 'hydrogenated'
+    ]
 };
 
-return meals.filter(meal => {
-    const lowerMeal = meal.toLowerCase();
-    return diets.every(diet => 
-        !(filterRules[diet] || []).some(term => lowerMeal.includes(term))
-    ) && verifyMealCompliance(meal, diets);
-});
+// Enhanced filtering logic
+function applyDietaryFilters(meals, diets) {
+    return meals.filter(meal => {
+        const lowerMeal = meal.toLowerCase();
+        const activeFilters = new Set();
+        
+        // Auto-add implied diets
+        if (diets.includes('vegan')) {
+            activeFilters.add('vegetarian');
+            activeFilters.add('dairy-free');
+        }
+        
+        diets.forEach(diet => activeFilters.add(diet));
+
+        return Array.from(activeFilters).every(diet => 
+            !filterRules[diet]?.some(term => lowerMeal.includes(term))
+        );
+    });
 }
 
 function verifyMealCompliance(meal, diets) {
