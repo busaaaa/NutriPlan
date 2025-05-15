@@ -687,6 +687,15 @@ button:active {
         function goBack() {
             window.location.href = 'index.html'; // Change to your actual landing page URL
         }
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    if (isValid) {
+        // Redirect to calculator.html
+        window.location.href = 'calculator.html';
+    }
+});
     </script>
 </body>
 </html>
