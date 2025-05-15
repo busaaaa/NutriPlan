@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+</head>
+<style>
+     body {
+  margin: 0; /* Remove default body margin */
+  min-height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center; /* Vertical center */
+}
+    .form-container {
+    width: 90%;
+    max-width: 350px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px 30px;
+}
+
+.title {
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 10px 0 30px 0;
+  font-size: 28px;
+  font-weight: 800;
+  color:#048654
+}
+
+.sub-title {
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 9px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 15px;
+}
+
+ .input-group {
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .input-group {
+      margin-bottom: 1rem;
+    }
+
+    .input {
+      width: 100%;
+      height: 44px;
+      background-color: #05060f0a;
+      border-radius: 0.1rem;
+      padding: 0 1rem;
+      border: 2px solid transparent;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.01, 0.25, 1);
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 11px;
+      font-weight: bold;
+      color: #05060f99;
+      transition: color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1);
+      font-family: "Lucida Sans", sans-serif;
+    }
+
+    .input:hover,
+    .input:focus,
+    .input-group:hover .input {
+      outline: none;
+      border-color: #069C54;
+      background-color: #fff;
+    }
+
+    .input-group:hover .label,
+    .input:focus {
+      color: #048654;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      .input {
+        height: 40px;
+        font-size: 0.9rem;
+        padding: 0 0.8rem;
+      }
+      
+      .label {
+        font-size: 0.8rem;
+      }
+    }
+
+
+    /* Error Message Styling */
+    .error-message {
+        color: red;
+        font-size: 0.8rem;
+        margin-top: 0.3rem;
+        position: absolute;
+        bottom: -1.2rem;
+        left: 0;
+    }
+
+    /* Existing Form Styles */
+    .form-container {
+        width: 350px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 10px;
+        padding: 2rem;
+        margin: 20px;
+    }
+
+.form-btn {
+  padding: 10px 15px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  border-radius: 20px;
+  border: 0 !important;
+  outline: 0 !important;
+  background: #048654;
+  color: white;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.form-btn:active {
+  box-shadow: none;
+}
+
+.sign-up-label {
+  margin: 0;
+  font-size: 10px;
+  color: #747474;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.sign-up-link {
+  margin-left: 5px;
+  font-size: 11px;
+  text-decoration: underline;
+  text-decoration-color: #048654 ;
+  color:#069C54;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.buttons-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+/* Add error message styling */
+    .error-message {
+        color: rgba(255, 0, 0, 0.74);
+        font-size: 12px;
+        margin-top: 5px;
+        font-family: "Lucida Sans", sans-serif;
+    }
+
+    .input {
+  border-radius:8px;
+  border: 1px solid #c0c0c0;
+  outline: 0 !important;
+  box-sizing: border-box;
+  padding: 12px 15px;
+}
+
+</style>
+<body>
+    
+  <div class="form-container">
+        <p class="title">Create account</p>
+        <p class="sub-title">Let's get started!!</p>
+        <form class="form" id="signupForm">
+            <div class="input-group">
+                <label class="label" for="name">Full Name</label>
+                <input type="text" class="input" id="name" placeholder=" ">
+                <div class="error-container"></div>
+            </div>
+
+            <div class="input-group">
+                <label class="label" for="email">Email Address</label>
+                <input type="email" class="input" id="email" placeholder=" ">
+                <div class="error-container"></div>
+            </div>
+
+            <div class="input-group">
+                <label class="label" for="password">Password</label>
+                <input type="password" class="input" id="password" placeholder=" ">
+                <div class="error-container"></div>
+            </div>
+
+            <button type="submit" class="form-btn">Create account</button>
+        </form>
+        <p class="sign-up-label">
+  Already have an account?
+  <a href="login.html" class="sign-up-link">Log in</a>
+</p>
+    </div>
+     <script>
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+           
+            // Get form elements
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            let isValid = true;
+
+            // Clear previous errors
+            clearErrors();
+
+            // Name validation
+            if (!name.value.trim()) {
+                showError(name, 'Name is required');
+                isValid = false;
+            }
+
+            // Email validation
+            if (!email.value.trim()) {
+                showError(email, 'Email is required');
+                isValid = false;
+            } else if (!validateEmail(email.value.trim())) {
+                showError(email, 'Invalid email format');
+                isValid = false;
+            }
+
+            // Password validation
+            if (!password.value.trim()) {
+                showError(password, 'Password is required');
+                isValid = false;
+            } else if (password.value.trim().length < 8) {
+                showError(password, 'Password must be at least 8 characters');
+                isValid = false;
+            }
+
+            // If valid, submit form
+            if (isValid) {
+                alert('Account created successfully!');
+                this.reset();
+            }
+  
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        function showError(input, message) {
+            const error = document.createElement('div');
+            error.className = 'error-message';
+            error.textContent = message;
+            input.parentNode.insertBefore(error, input.nextSibling);
+        }
+
+        function clearErrors() {
+            const errors = document.querySelectorAll('.error-message');
+            errors.forEach(error => error.remove());
+        }
+
+            if (isValid) {
+        alert('Account created successfully! Redirecting to login...');
+        // Redirect to login page after 1 second
+        setTimeout(() => {
+            window.location.href = 'login.html';
+        }, 1000);
+    }
+});
+
+    </script>
+</body>
+</html>
